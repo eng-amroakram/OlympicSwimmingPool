@@ -62,3 +62,8 @@ Route::middleware(['web'])->group(function () {
         Route::get('/', [WebPagesController::class, 'landingPage'])->name('landing-page');
     });
 });
+
+
+Route::get('test', function () {
+    return view('welcome');
+});

@@ -62,6 +62,7 @@
 
     <script type="text/javascript" src="{{ asset('assets/admin/js/new-prism.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/admin/js/mdb.min.js') }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset('assets/admin/mdb-demo/js/mdb.min.js') }}"></script> --}}
     <script type="text/javascript" src="{{ asset('assets/admin/js/jquery-3.4.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/admin/js/popper.min.js') }}"></script>
 

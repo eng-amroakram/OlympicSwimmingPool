@@ -26,6 +26,8 @@
                             <div class="form-group">
                                 <i class="bx bx-user"></i>
                                 <input class="form-control" type="text" wire:model.defer="name" placeholder="الاسم">
+                                <div class="form-helper text-danger name-contact-us-validation reset-validation">
+                                </div>
                             </div>
                         </div>
                         <div class="col-12">
@@ -33,16 +35,22 @@
                                 <i class="bx bx-mail-send"></i>
                                 <input class="form-control" type="text" wire:model.defer="email"
                                     placeholder="البريد الالكتروني">
+                                <div class="form-helper text-danger email-contact-us-validation reset-validation">
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <i class="bx bx-file"></i>
-                                <select class="form-control" wire:model.live="our_service_id">
+                                <select class="form-control" id="our_service_select_id"
+                                    wire:model.live="our_service_id">
                                     @foreach (our_services(true) as $id => $name)
                                         <option value="{{ $id }}">{{ $name }}</option>
                                     @endforeach
                                 </select>
+                                <div
+                                    class="form-helper text-danger our_service_id-contact-us-validation reset-validation">
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -51,6 +59,8 @@
 
                                 <input class="form-control" type="text" wire:model.defer="phone"
                                     placeholder="رقم الجوال">
+                                <div class="form-helper text-danger phone-contact-us-validation reset-validation">
+                                </div>
 
                             </div>
                         </div>
@@ -59,6 +69,8 @@
                                 <i class="bx bx-mail-send"></i>
                                 <textarea wire:model.defer="message" class="form-control" id="message" cols="30" rows="5" required=""
                                     data-error="اكتب رسالتك هنا" placeholder="اكتب رسالتك هنا"></textarea>
+                                <div class="form-helper text-danger message-contact-us-validation reset-validation">
+                                </div>
                             </div>
                         </div>
 
@@ -74,3 +86,33 @@
         </div>
     </div>
 </div>
+
+
+@push('contact-us-script-js')
+    <script>
+        $(document).ready(function() {
+            $our_service_select = $("#our_service_select_id");
+            $our_service_select.on('change', function() {
+                @this.set("our_service_id", $(this).val());
+            });
+
+
+            Livewire.on("process-has-been-done", function() {
+                $(".reset-validation").text("");
+            });
+
+            Livewire.on("create-contact-us-errors", function(errors) {
+                console.log(errors);
+                $(".reset-validation").text("");
+                for (let key in errors[0]) {
+                    if (errors[0].hasOwnProperty(key)) {
+                        $("." + key + "-contact-us-validation").text(errors[0][key]);
+                    }
+                }
+            });
+
+
+
+        });
+    </script>
+@endpush

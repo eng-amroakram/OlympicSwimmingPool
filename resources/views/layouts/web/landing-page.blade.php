@@ -65,6 +65,14 @@
     <script src="{{ asset('assets/web/js/form-validator.min.js') }}"></script>
     <script src="{{ asset('assets/web/js/contact-form-script.js') }}"></script>
     <script src="{{ asset('assets/web/js/custom.js') }}"></script>
+
+
+
+    @stack('contact-us-script-js')
+
+
+
+
 </body>
 
 </html>

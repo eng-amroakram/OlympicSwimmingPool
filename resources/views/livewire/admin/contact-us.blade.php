@@ -89,8 +89,16 @@
                             <td>{{ $client->id }}</td>
                             <td>{{ $client->name }}</td>
                             <td>{{ $client->email }}</td>
-                            <td>{{ $client->service->name }}</td>
-                            <td>{{ 'Message' }}</td>
+                            <td>{{ $client->phone }}</td>
+                            <td>{{ $client->service?->title }}</td>
+                            <td>
+                                <a tabindex="0" class="text-primary fa-lg me-2 ms-2" role="button"
+                                    data-mdb-ripple-init data-mdb-popover-init data-mdb-trigger="focus"
+                                    title="رسالة {{ $client->name }}" data-mdb-placement="top"
+                                    data-mdb-content="{{ $client->message }}" data-mdb-toggle="popover">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>
                             <td>
                                 <div class="d-flex justify-content-center">
                                     <a type="button" class="text-danger fa-lg me-2 ms-2"

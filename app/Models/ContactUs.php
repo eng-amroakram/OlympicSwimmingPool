@@ -32,6 +32,11 @@ class ContactUs extends Model
         ]);
     }
 
+    public function service()
+    {
+        return $this->belongsTo(OurService::class, 'our_service_id', 'id');
+    }
+
     public function scopeFilters(Builder $builder, array $filters = [])
     {
         $filters = array_merge([
@@ -70,10 +75,9 @@ class ContactUs extends Model
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string'],
+            'email' => ['required', 'email', 'string'],
             'phone' => ['required', 'string'],
             'message' => ['required',],
-            'time_to' => ['required',],
             'our_service_id' => ['required'],
         ];
     }
@@ -81,12 +85,12 @@ class ContactUs extends Model
     public function scopeGetMessages()
     {
         return [
-            "name.required" => "الحقل مطلوب",
-            "email.required" => "الحقل مطلوب",
-            "phone.required" => "الحقل مطلوب",
-            "message.required" => "الحقل مطلوب",
-            "time_to.required" => "الحقل مطلوب",
-            "our_service_id.required" => "الحقل مطلوب",
+            "name.required" => "ادخل اسمك",
+            "email.required" => "ادخل ايميلك",
+            "email.email" => "الايميل غير صالح",
+            "phone.required" => "ادخل رقمك",
+            "message.required" => "ما هي رسالتك ؟",
+            "our_service_id.required" => "اختار  الخدمة التي تحتاج ؟",
         ];
     }
 

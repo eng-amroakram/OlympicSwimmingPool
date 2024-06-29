@@ -83,7 +83,7 @@ class Slider extends Model
             'sub_title' => ['required', 'string', 'max:255', "unique:sliders,sub_title,$id"],
             'photo' => ['required', 'image', "max:2048"],
             'description' => ['required', 'string'],
-            'link' => ['required', 'string', 'url'],
+            'link' => ['string', 'url'],
             'status' => ['required', 'string', 'in:active,inactive'],
         ];
     }

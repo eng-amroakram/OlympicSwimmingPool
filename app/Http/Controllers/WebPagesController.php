@@ -33,7 +33,11 @@ class WebPagesController extends Controller
         $gallery = Gallery::data()->active()->get();
         $partners = Partner::data()->active()->get();
         $settings = Settings::data()->active()->first();
-        $blogs = Blog::data()->active()->get()->random(3);
+        $blogs = Blog::data()->active()->get();
+
+        if ($blogs->count() > 3) {
+            $blogs = $blogs->random(3);
+        }
 
         return view('pages.web.landing-page', [
             'sliders' => $sliders,

@@ -15,28 +15,28 @@
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto">
                         <li class="nav-item">
-                            <a href="{{ route('index') }}" class="nav-link active">
+                            <a href="{{ route('web.landing-page') }}" class="nav-link active">
                                 الرئيسية
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('index') }}" class="nav-link">
+                            <a href="{{ route('web.landing-page') }}" class="nav-link">
                                 عن المسبح
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('index') }}" class="nav-link">
+                            <a href="{{ route('web.landing-page') }}" class="nav-link">
                                 خدماتنا
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('index') }}" class="nav-link">
+                            <a href="{{ route('web.landing-page') }}" class="nav-link">
                                 اللوكيشن
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('index') }}" class="nav-link">
+                            <a href="{{ route('web.landing-page') }}" class="nav-link">
                                 الاخبار
                             </a>
                         </li>

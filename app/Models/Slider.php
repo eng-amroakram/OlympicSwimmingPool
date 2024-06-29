@@ -81,7 +81,7 @@ class Slider extends Model
         return [
             'title' => ['required', 'string', 'max:255', "unique:sliders,title,$id"],
             'sub_title' => ['required', 'string', 'max:255', "unique:sliders,sub_title,$id"],
-            'photo' => ['required', 'image', "max:2048"],
+            'photo' => ['required', 'image', "max:1024"],
             'description' => ['required', 'string'],
             'link' => ['string', 'url'],
             'status' => ['required', 'string', 'in:active,inactive'],

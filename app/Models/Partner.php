@@ -69,7 +69,7 @@ class Partner extends Model
     public function scopeGetRules(Builder $builder, $id = "")
     {
         return [
-            'photo' => ['required', 'image'],
+            'photo' => ['required', 'image', "max:1024"],
         ];
     }
 

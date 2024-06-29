@@ -75,7 +75,7 @@ class OurService extends Model
     {
         return [
             'title' => ['required', 'string', 'max:255', "unique:our_services,title,$id"],
-            'photo' => ['required', 'image']
+            'photo' => ['required', 'image', "max:1024"]
         ];
     }
 

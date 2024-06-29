@@ -69,7 +69,7 @@ class Gallery extends Model
     public function scopeGetRules(Builder $builder, $id = "")
     {
         return [
-            'photo' => ['required', 'image', "max:2048"],
+            'photo' => ['required', 'image', "max:1024"],
             'status' => ['required', 'string', 'in:active,inactive'],
         ];
     }

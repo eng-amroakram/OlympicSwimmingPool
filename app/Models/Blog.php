@@ -95,7 +95,7 @@ class Blog extends Model
         return [
             "title" => ['required', "unique:blogs,title,$id"],
             // "sub_title" => ['required', "unique:blogs,sub_title,$id"],
-            'photo' => ['required', 'image', "max:2048"],
+            'photo' => ['required', 'image', "max:1024"],
             'description' => ['string'],
             'status' => ['required', 'string', 'in:active,inactive'],
         ];

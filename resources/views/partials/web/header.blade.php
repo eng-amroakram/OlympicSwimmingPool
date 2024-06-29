@@ -10,7 +10,7 @@
                                 <div class="head-icon">
                                     <i class="flaticon-phone-call"></i>
                                 </div>
-                                <a href="tel:+(704)279-1249">+(966) {{ $location?->phone }}</a>
+                                <a href="tel:+(704)279-1249">{{ $location?->phone }} (966)+</a>
                             </li>
                             <li>
                                 <div class="head-icon">

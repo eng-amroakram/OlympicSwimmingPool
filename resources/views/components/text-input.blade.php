@@ -4,7 +4,7 @@
         <i class="fas fa-pen"></i>
     </span>
 
-    <input type="text" wire:model.defer="{{ $name }}" maxlength="30" class="form-control"
+    <input type="text" wire:model.defer="{{ $name }}" maxlength="100" class="form-control"
         placeholder="ادخل {{ $label }}" />
 
 </div>

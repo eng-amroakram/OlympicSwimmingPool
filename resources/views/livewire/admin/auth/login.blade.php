@@ -20,7 +20,7 @@
             <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
             <label class="form-check-label" for="form1Example3"> تذكر بيانات الدخول </label>
         </div>
-        <a href="#!">هل نسيت كلمة المرور؟</a>
+        {{-- <a href="#!">هل نسيت كلمة المرور؟</a> --}}
     </div>
 
     <!-- Submit button -->

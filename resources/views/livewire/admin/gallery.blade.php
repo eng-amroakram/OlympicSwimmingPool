@@ -61,14 +61,14 @@
 
             <div class="row p-2 mb-3">
 
-                <div class="col-md-3">
+                {{-- <div class="col-md-3">
                     <div class="form-outline">
                         <i class="fab fa-searchengin trailing text-primary"></i>
                         <input type="search" id="search" wire:model.live="search"
                             class="form-control form-icon-trailing" aria-describedby="textExample1" />
                         <label class="form-label" for="search">البحث</label>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="col-md-3">
                     <select class="select" multiple wire:model.live="search_status">

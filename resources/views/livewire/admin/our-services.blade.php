@@ -251,7 +251,8 @@
 
                                     <div class="col-md-12">
                                         <input id="description-input" type="hidden">
-                                        <trix-editor input="description-input" wire:model.defer="description"
+                                        <trix-editor id="description-input-editor" input="description-input"
+                                            wire:model.defer="description"
                                             placeholder="ادخل هنا تفاصيل الخدمة"></trix-editor>
 
                                         <div
@@ -330,6 +331,18 @@
                 singleSelectInstance.setValue([]);
                 $(".create-button").show();
                 $(".update-button").hide();
+            });
+
+            $(".create-button").on('click', function() {
+                const editorElement = $('#description-input-editor')[0];
+                const editorHtml = editorElement.editor.element.innerHTML;
+                @this.set('description', editorHtml);
+            });
+
+            $(".update-button").on('click', function() {
+                const editorElement = $('#description-input-editor')[0];
+                const editorHtml = editorElement.editor.element.innerHTML;
+                @this.set('description', editorHtml);
             });
 
         });

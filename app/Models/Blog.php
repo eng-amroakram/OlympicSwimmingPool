@@ -6,25 +6,34 @@ use App\Traits\ModelHelper;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
-class Gallery extends Model
+class Blog extends Model
 {
     use HasFactory;
     use ModelHelper;
 
-    protected $file_path = 'photos/gallery';
+    protected $file_path = 'photos/blogs';
 
     protected $fillable = [
+        "title",
+        // "sub_title",
         "photo",
-        "status"
+        "description",
+        "status",
     ];
 
     public function scopeData($query)
     {
         return $query->select([
             "id",
+            "title",
+            // "sub_title",
             "photo",
-            "status"
+            "description",
+            "status",
+            "created_at",
+            "updated_at",
         ]);
     }
 
@@ -38,6 +47,21 @@ class Gallery extends Model
         return $this->attributes['photo'] ? asset('storage/' . $this->attributes['photo']) : asset('assets/admin/images/no-image-available.jpg');
     }
 
+    public function getCreatedAtAttribute()
+    {
+        return Carbon::parse($this->attributes['created_at'])->locale('ar')->isoFormat('D MMMM YYYY');
+    }
+
+    public function getCreatedAtDayAttribute()
+    {
+        return Carbon::parse($this->attributes['created_at'])->locale('ar')->isoFormat('D');
+    }
+
+    public function getCreatedAtMonthAttribute()
+    {
+        return Carbon::parse($this->attributes['created_at'])->locale('ar')->isoFormat('MMMM');
+    }
+
     public function scopeFilters(Builder $builder, array $filters = [])
     {
         $filters = array_merge([
@@ -46,6 +70,7 @@ class Gallery extends Model
         ], $filters);
 
         $builder->when($filters['search'] != '', function ($query) use ($filters) {
+            $query->where('title', 'like', '%' . $filters['search'] . '%');
         });
 
         $builder->when($filters['search'] == '' && $filters['status'] != null, function ($query) use ($filters) {
@@ -65,11 +90,13 @@ class Gallery extends Model
         return false;
     }
 
-
     public function scopeGetRules(Builder $builder, $id = "")
     {
         return [
+            "title" => ['required', "unique:blogs,title,$id"],
+            // "sub_title" => ['required', "unique:blogs,sub_title,$id"],
             'photo' => ['required', 'image', "max:2048"],
+            'description' => ['string'],
             'status' => ['required', 'string', 'in:active,inactive'],
         ];
     }
@@ -77,7 +104,12 @@ class Gallery extends Model
     public function scopeGetMessages()
     {
         return [
+            "title.required" => "الحقل مطلوب",
+            "title.unique" => "العنوان مستخدم مسبقا",
+            // "sub_title.required" => "الحقل مطلوب",
+            // "sub_title.unique" => "العنوان مستخدم مسبقا",
             "photo.required" => "الحقل مطلوب",
+            "photo.image" => "صيغة الملف يجب ان تكون صورة",
             "status.required" => "اختر حالة السلايدر",
         ];
     }

@@ -4,7 +4,7 @@
         <i class="fas fa-pen"></i>
     </span>
 
-    <input type="file" wire:model.defer="{{ $name }}" class="form-control"
+    <input type="file" wire:model.live="{{ $name }}" class="form-control"
         placeholder="ارفق {{ $label }}" />
 
 </div>

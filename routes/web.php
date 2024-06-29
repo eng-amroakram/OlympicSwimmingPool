@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\WebPagesController;
 use App\Livewire\Admin\AboutUs;
 use App\Livewire\Admin\Auth\Login;
+use App\Livewire\Admin\Blog;
 use App\Livewire\Admin\ContactUs;
 use App\Livewire\Admin\Features;
 use App\Livewire\Admin\Gallery;
@@ -49,6 +50,7 @@ Route::middleware(['web'])->group(function () {
             Route::get('partners', Partner::class)->name('partners');
             Route::get('settings', Settings::class)->name('settings');
             Route::get('contact-us', ContactUs::class)->name('contact-us');
+            Route::get('/blogs', Blog::class)->name('blogs');
         });
 
         Route::controller(AdminPagesController::class)->group(function () {
@@ -60,6 +62,10 @@ Route::middleware(['web'])->group(function () {
 
     Route::as('web.')->group(function () {
         Route::get('/', [WebPagesController::class, 'landingPage'])->name('landing-page');
+        Route::get('/blog', [WebPagesController::class, 'blog'])->name('blog');
+        Route::get('/blog-details/{blog}', [WebPagesController::class, 'blogDetails'])->name('blog-details');
+        Route::get('/gallery', [WebPagesController::class, 'gallery'])->name('gallery');
+        Route::get('/our_service/{our_service}', [WebPagesController::class, 'our_service'])->name('our_service');
     });
 });
 

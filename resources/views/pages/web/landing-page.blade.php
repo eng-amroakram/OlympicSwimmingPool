@@ -66,11 +66,11 @@
         <div class="container-fluid">
             <div class="container-max">
                 <div class="section-title text-center">
-                    <span> خدماتنا</span>
+                    {{-- <span> خدماتنا</span> --}}
                     <h2 class="margin-auto">خدماتنا</h2>
-                    <p class="margin-auto">
+                    {{-- <p class="margin-auto">
                         نص تجريبي لتفاصيل الخدمات يكتب هنا نص تجريبي يضاف من لوحة التحكم
-                    </p>
+                    </p> --}}
                 </div>
 
 
@@ -88,7 +88,8 @@
                                         <a href="projects.html">
                                             <h3>{{ $our_service->title }}</h3>
                                         </a>
-                                        <a href="projects.html" class="view-more-btn">
+                                        <a target="_blank" href="{{ route('web.our_service', $our_service->id) }}"
+                                            class="view-more-btn">
                                             <i class="flaticon-diagonal-arrow"></i>
                                             تعرف اكثر
                                         </a>
@@ -176,81 +177,42 @@
     <section class="blog-area pt-100 pb-70">
         <div class="container">
             <div class="section-title text-center">
-                <span>اخبارنا</span>
-                <h2 class="margin-auto">كن علي جديد بمتابعة الانشطة والفعاليات</h2>
-                <p class="margin-auto">نص تجريبي لنبذة مختصرة عن عنوان الاخبار يكتب هنا نص تجريبي للتفاصيل نبذة مختصرة
+                {{-- <span>اخبارنا</span> --}}
+                <h2 class="margin-auto">الاخبار والانشطة</h2>
+                {{-- <p class="margin-auto">نص تجريبي لنبذة مختصرة عن عنوان الاخبار يكتب هنا نص تجريبي للتفاصيل نبذة مختصرة --}}
                 </p>
             </div>
             <div class="row pt-45">
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-card">
-                        <a href="blog-details.html">
-                            <img src="{{ asset('assets/web/img/blog/1.jpg') }}" alt="Blog Images">
-                        </a>
-                        <div class="blog-content">
-                            <ul>
-                                <li>
-                                    <i class="bx bx-time-five"></i>
-                                    16 فبراير 2024
-                                </li>
 
-                            </ul>
+                @foreach ($blogs as $blog)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog-card">
                             <a href="blog-details.html">
-                                <h3>عنوان الخبر يكتب هنا نص تجريبي للعنوان </h3>
+                                <img src="{{ $blog->photo_table }}" alt="Blog Images">
                             </a>
-                            <a href="blog-details.html" class="more-blog">
-                                <i class="flaticon-diagonal-arrow"></i>
-                                اقرا المزيد
-                            </a>
+                            <div class="blog-content">
+                                <ul>
+                                    <li>
+                                        <i class="bx bx-time-five"></i>
+                                        {{ $blog->created_at }}
+                                    </li>
+                                </ul>
+                                <a href="blog-details.html">
+                                    <h3>{{ $blog->title }}</h3>
+                                </a>
+                                <a target="_blank" href="{{ route('web.blog-details', $blog->id) }}" class="more-blog">
+                                    <i class="flaticon-diagonal-arrow"></i>
+                                    اقرا المزيد
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-card">
-                        <a href="blog-details.html">
-                            <img src="{{ asset('assets/web/img/2.jpg') }}" alt="Blog Images">
-                        </a>
-                        <div class="blog-content">
-                            <ul>
-                                <li>
-                                    <i class="bx bx-time-five"></i>
-                                    13 يونيو 2024
-                                </li>
+                @endforeach
 
-                            </ul>
-                            <a href="blog-details.html">
-                                <h3>عنوان الانشطة والفعاليات تكتب هنا</h3>
-                            </a>
-                            <a href="blog-details.html" class="more-blog">
-                                <i class="flaticon-diagonal-arrow"></i>
-                                اقرا المزيد
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
-                    <div class="blog-card">
-                        <a href="blog-details.html">
-                            <img src="{{ asset('assets/web/img/blog/3.jpg') }}" alt="Blog Images">
-                        </a>
-                        <div class="blog-content">
-                            <ul>
-                                <li>
-                                    <i class="bx bx-time-five"></i>
-                                    15 يوليو 2024
-                                </li>
 
-                            </ul>
-                            <a href="blog-details.html">
-                                <h3>عنوان الخبر الاخير يكتب هنا جديد الاخبار</h3>
-                            </a>
-                            <a href="blog-details.html" class="more-blog">
-                                <i class="flaticon-diagonal-arrow"></i>
-                                اقرا المزيد
-                            </a>
-                        </div>
-                    </div>
-                </div>
+
+
+
             </div>
         </div>
     </section>

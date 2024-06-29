@@ -108,6 +108,7 @@
     @stack('create-new-partner-script')
     @stack('create-new-settings-script')
     @stack('create-new-contact-us-script')
+    @stack('create-new-blog-script')
 
 </body>
 

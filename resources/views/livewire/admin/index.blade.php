@@ -89,6 +89,18 @@
             </div>
         </div>
 
+        <div class="col-xl-3 col-md-6 mb-5">
+            <div class="card card-cascade cascading-admin-card">
+                <div class="admin-up">
+                    <i class="fas fa-blog blue-color pr-3 mr-3 z-depth-2"></i>
+                    <div class="data">
+                        <p class="text-uppercase fs-6 fw-bold">المقالات</p>
+                        <h4 class="font-weight-bold dark-grey-text">{{ count_models('Blog') }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 </section>

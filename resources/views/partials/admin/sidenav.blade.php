@@ -56,6 +56,11 @@
         </li>
 
         <li class="sidenav-item">
+            <a class="sidenav-link" style="font-size: 16px;" href="{{ route('admin.blogs') }}">
+                <i class="fas fa-blog pr-3 me-2 "></i><span> المقالات</span></a>
+        </li>
+
+        <li class="sidenav-item">
             <a class="sidenav-link" style="font-size: 16px;" href="{{ route('admin.contact-us') }}">
                 <i class="fas fa-users pr-3 me-2 "></i><span>تواصل العملاء</span></a>
         </li>

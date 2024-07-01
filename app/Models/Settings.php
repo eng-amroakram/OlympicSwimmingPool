@@ -90,7 +90,7 @@ class Settings extends Model
             'day_to' => ['required', 'string'],
             'time_from' => ['required',],
             'time_to' => ['required',],
-            'photo' => ['required', "max:1024"],
+            'photo' => ['required', "max:2048"],
         ];
     }
 

@@ -61,7 +61,11 @@ class WebPagesController extends Controller
 
     public function blogDetails(Blog $blog)
     {
-        $blogs = Blog::data()->active()->get()->random(5);
+        $blogs = Blog::data()->active()->get();
+
+        if ($blogs->count() > 5) {
+            $blogs = $blogs->random(5);
+        }
 
         return view('pages.web.blog-details', [
             'settings' => $this->settings,

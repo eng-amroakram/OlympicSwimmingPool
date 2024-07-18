@@ -133,7 +133,9 @@
                     </div>
                 </div>
                 <div class="col-lg-7">
-                    <img src="{{ asset('assets/web/img/home2.jpg') }}" alt="map Images">
+                    <a target="_blank" href="https://maps.app.goo.gl/CtgSYUcjaavdkpMJ8">
+                        <img src="{{ asset('assets/web/img/home2.jpg') }}" alt="map Images">
+                    </a>
                 </div>
             </div>
         </div>

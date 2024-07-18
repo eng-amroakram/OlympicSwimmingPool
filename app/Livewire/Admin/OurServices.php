@@ -153,7 +153,6 @@ class OurServices extends Component
         if ($result) {
             $this->alertMessage('تم تحديث البيانات بنجاح', 'success');
             $this->dispatch('process-has-been-done');
-            $this->reset();
             return redirect()->route('admin.our-services');
         }
 
@@ -166,16 +165,18 @@ class OurServices extends Component
         $service = $this->setService();
         $our_services = $service->model($id);
         $this->our_services_id = $id;
-
         $this->title = $our_services->title;
         // $this->photo = $our_services->photo;
         $this->description = $our_services->description;
-
-        // $this->dispatch('set-about-us-features', ["features" => $about_us->features]);
     }
 
     public function resetting()
     {
         $this->reset();
+    }
+
+    public function updated($field, $value)
+    {
+        // dd($field, $value);
     }
 }

@@ -213,8 +213,20 @@
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <x-text-input label="العنوان" name="title"
-                                            model="our-services"></x-text-input>
+                                        <label class="form-label"><strong>العنوان</strong></label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-pen"></i>
+                                            </span>
+
+                                            <input type="text" wire:model.live="title" maxlength="100"
+                                                class="form-control" placeholder="ادخل العنوان" />
+
+                                        </div>
+                                        <div
+                                            class="form-helper text-danger title-our-service-validation reset-validation">
+                                        </div>
+
                                     </div>
 
                                     <div class="col-md-6">

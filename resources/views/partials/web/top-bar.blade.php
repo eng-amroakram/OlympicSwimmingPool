@@ -1,8 +1,8 @@
 <div class="navbar-area">
 
     <div class="mobile-nav">
-        <a href="index.html" class="logo">
-            <img src="assets/img/footer-logo.png" alt="Logo">
+        <a href="{{ route('web.landing-page') }}" class="logo">
+            <img src="{{ $settings?->photo_table }}" alt="Logo">
         </a>
     </div>
 

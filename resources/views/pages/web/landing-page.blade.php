@@ -189,7 +189,7 @@
                 @foreach ($blogs as $blog)
                     <div class="col-lg-4 col-md-6">
                         <div class="blog-card">
-                            <a href="blog-details.html">
+                            <a target="_blank" href="{{ route('web.blog-details', $blog->id) }}">
                                 <img src="{{ $blog->photo_table }}" alt="Blog Images">
                             </a>
                             <div class="blog-content">
@@ -199,7 +199,7 @@
                                         {{ $blog->created_at }}
                                     </li>
                                 </ul>
-                                <a href="blog-details.html">
+                                <a target="_blank" href="{{ route('web.blog-details', $blog->id) }}">
                                     <h3>{{ $blog->title }}</h3>
                                 </a>
                                 <a target="_blank" href="{{ route('web.blog-details', $blog->id) }}" class="more-blog">

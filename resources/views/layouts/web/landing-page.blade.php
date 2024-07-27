@@ -28,6 +28,7 @@
 
     @livewireStyles()
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/d9e3adf935.js" crossorigin="anonymous"></script>
     <x-livewire-alert::scripts />
 </head>
 

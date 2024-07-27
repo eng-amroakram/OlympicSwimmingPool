@@ -38,7 +38,8 @@
                         @if ($location?->twitter)
                             <li>
                                 <a class="active" href="{{ $location?->twitter }}" target="_blank">
-                                    <i class="bx bxl-twitter"></i>
+                                    {{-- <i class="bx bxl-twitter"></i> --}}
+                                    <i class="fa-brands fa-x-twitter"></i>
                                 </a>
                             </li>
                         @endif
